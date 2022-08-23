@@ -18,6 +18,22 @@ This application provides a way of searching the latitude and longitude coordina
 ## Architecture
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
 
+The below diagram repesents 3 different ways that 3rd party APIs can be used:
+
+1. The front end acts as middle layer between the back end and a 3rd party API. This is necessary when user input events trigger the API call, or are needed to do the API call.
+2. The back end uses a 3rd party API directly in conjunction with a database.
+3. The back end uses a 3rd party API directly without any database.
+
+This application currently only uses the 1st interaction. The request-response cycle in this case is:
+
+1. The client browser requests the page from the server hosting the application.
+2. The server responds with the html, css, javascript, and other assets to render the page.
+3. The client triggers an event with a call to a 3rd party API, sending out an AJAX request (the getCityData function in this case, using Axios promises).
+4. The 3rd party API responds to the client (the promise is settled).
+5. The client receives the data and stores it in the browser and re-renders the page with it.
+
+![Diagram](diagram.png)
+
 This application uses React, Bootstrap, React Bootstrap, the Axios library, and the Location IQ API.
 
 ## Change Log
