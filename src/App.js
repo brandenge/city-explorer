@@ -13,8 +13,8 @@ class App extends React.Component {
       city: '',
       cityData: [],
       mapSrc: '',
-      error: false,
-      errorMessage: ''
+      hasError: false,
+      error: {}
     };
   }
 
@@ -31,13 +31,14 @@ class App extends React.Component {
       const url = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATION_IQ_API_KEY}&q=${this.state.city}&format=json`;
       const cityData = await axios.get(url);
       this.setState({
-        cityData: cityData.data
+        cityData: cityData.data,
+        hasError: false
       });
     } catch(error) {
       console.log(error);
       this.setState({
-        error: true,
-        errorMessage: `An error occured: ${error.message}`
+        hasError: true,
+        error: error
       });
     }
   }
@@ -57,11 +58,17 @@ class App extends React.Component {
           </Button>
         </Form>
         {
-          this.state.error && <p>{this.state.errorMessage}</p>
+          this.state.hasError && <Card className='error'>
+          <Card.Body>
+            <Card.Title>ERROR</Card.Title>
+            <Card.Text>ERROR STATUS CODE: {this.state.error.response.status}</Card.Text>
+            <Card.Text>ERROR MESSAGE: {this.state.error.message}</Card.Text>
+          </Card.Body>
+        </Card>
         }
         {
           this.state.cityData.length > 0 &&
-          <Card className='card' style={{ width: '18rem' }}>
+          <Card className='card'>
             <Card.Body>
               <Card.Img className='cardImg' src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_IQ_API_KEY}&center=${this.state.cityData[0].lat},${this.state.cityData[0].lon}&zoom=10`}></Card.Img>
               <Card.Title>{this.state.cityData[0].display_name}</Card.Title>
