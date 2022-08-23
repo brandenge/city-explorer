@@ -1,0 +1,53 @@
+/* General */
+
+body {
+  background-color: lightgrey !important;
+}
+
+/* Form and Input */
+
+.form {
+  margin: 20px;
+}
+
+.input {
+  background-color: lightgrey;
+}
+
+/* Button */
+
+.button {
+  margin: 20px;
+  background-color: rgb(146, 154, 213) !important;
+  color: black !important;
+  font-size: 24px !important;
+}
+
+/* Cards */
+
+.cardLayout {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding-top: 4rem;
+ }
+
+ .card {
+  width: 30em !important;
+  margin: 20px;
+  text-align: center;
+  box-shadow: 0 3px 23px rgba(0, 0, 0, 0.7)  ;
+  -webkit-box-shadow: 0 3px 23px rgba(0, 0, 0, 0.7)  ;
+  -moz-box-shadow: 0 3px 23px rgba(0, 0, 0, 0.7)  ;
+ }
+
+ .cardImg {
+  max-height: auto;
+  max-width: 30em;
+  padding-bottom: 2rem;
+  cursor: pointer;
+ }
+
+ .error {
+  background-color: lightcoral !important;
+ }
