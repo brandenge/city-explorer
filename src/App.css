@@ -2,6 +2,7 @@
 
 body {
   background-color: lightgrey !important;
+  padding: 30px;
 }
 
 /* Form and Input */
@@ -34,8 +35,9 @@ body {
 
  .card {
   width: 30em !important;
-  margin: 20px;
+  margin: auto;
   text-align: center;
+  list-style-position: inside;
   box-shadow: 0 3px 23px rgba(0, 0, 0, 0.7)  ;
   -webkit-box-shadow: 0 3px 23px rgba(0, 0, 0, 0.7)  ;
   -moz-box-shadow: 0 3px 23px rgba(0, 0, 0, 0.7)  ;
