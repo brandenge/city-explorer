@@ -1,0 +1,7 @@
+.carousel {
+  margin: 20px;
+}
+
+.carousel h3, .carousel p {
+  color: cyan;
+}

@@ -34,8 +34,9 @@ body {
  }
 
  .card {
+  margin: 20px;
+  padding: 20px;
   width: 30em !important;
-  margin: auto;
   text-align: center;
   list-style-position: inside;
   box-shadow: 0 3px 23px rgba(0, 0, 0, 0.7)  ;

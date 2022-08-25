@@ -47,11 +47,15 @@ This application uses React, Bootstrap, React Bootstrap, the Axios library, and 
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
-The lab 6 demo app by Audrey Patterson was a big help. [Link](https://github.com/codefellows/seattle-code-301d88/blob/main/class-06/in-class-demo/api-call/src/App.js)
+The lab demos by Audrey Patterson and Code Fellows was a big help.
+
+1) [Lab 6 demo](https://github.com/codefellows/seattle-code-301d88/blob/main/class-06)
+2) [Lab 7 demo](https://github.com/codefellows/seattle-code-301d88/tree/main/class-07)
+3) [Lab 8 demo](https://github.com/codefellows/seattle-code-301d88/tree/main/class-08)
 
 ## Time Estimates
 
-Name of feature: Set up your React repository & API keys.
+### 1) Name of feature: Set up your React repository & API keys
 
 Estimate of time needed to complete: 1 hour
 
@@ -61,7 +65,7 @@ Finish time: 8:15
 
 Actual time needed to complete: 1 hour
 
-Name of feature: Locations - enter location name to see exact latitude and longitude of location
+### 2) Name of feature: Locations - enter location name to see exact latitude and longitude of location
 
 Estimate of time needed to complete: 2 hours
 
@@ -71,7 +75,7 @@ Finish time: 10:35
 
 Actual time needed to complete: 2 hours and 20 minutes
 
-Name of feature: Map - display a map
+### 3) Name of feature: Map - display a map
 
 Estimate of time needed to complete: 2 hours
 
@@ -81,7 +85,7 @@ Finish time: 11:45
 
 Actual time needed to complete: 1 hour and 10 minutes
 
-Name of feature: Errors - add error handling
+### 4) Name of feature: Errors - add error handling
 
 Estimate of time needed to complete: 1 hour
 
