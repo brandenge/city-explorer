@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Weather from './Weather';
+import Movies from './Movies';
 import Form from 'react-bootstrap/Form';
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
@@ -108,9 +109,16 @@ class App extends React.Component {
               <Card.Img className='cardImg' src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_IQ_API_KEY}&center=${this.state.cityData[0].lat},${this.state.cityData[0].lon}&zoom=10`}></Card.Img>
               <Card.Title>{this.state.cityData[0].display_name}</Card.Title>
               <Card.Text>Latitude: {this.state.cityData[0].lat} | Longitude: {this.state.cityData[0].lon}</Card.Text>
-              <Weather days={this.state.weatherData}></Weather>
             </Card.Body>
           </Card>
+        }
+        {
+          this.state.weatherData.length > 0 &&
+            <Weather days={this.state.weatherData}></Weather>
+        }
+        {
+          this.state.movies.length > 0 &&
+          <Movies movies={this.state.movies}></Movies>
         }
         {
           this.state.hasError &&
