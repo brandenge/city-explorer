@@ -1,7 +1,8 @@
-.carousel {
+.wheel {
   margin: 20px;
+  width: 80% !important;
 }
 
-.carousel h3, .carousel p {
+.wheel h3, .wheel p {
   color: cyan;
 }

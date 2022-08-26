@@ -33,7 +33,6 @@ class App extends React.Component {
       e.preventDefault();
       const cityURL = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATION_IQ_API_KEY}&q=${this.state.searchQuery}&format=json`;
       const cityData = await axios.get(cityURL);
-      console.log('cityData:', cityData);
 
       this.setState({
         cityData: cityData.data,
@@ -55,7 +54,6 @@ class App extends React.Component {
     try {
       const weatherURL = `${process.env.REACT_APP_SERVER_URL}/weather?lat=${this.state.cityData[0].lat}&lon=${this.state.cityData[0].lon}`;
       const weatherData = await axios.get(weatherURL);
-      console.log('weatherData:', weatherData.data);
       this.setState({
         weatherData: weatherData.data,
         hasError: false,
@@ -73,7 +71,6 @@ class App extends React.Component {
     try {
       const moviesURL = `${process.env.REACT_APP_SERVER_URL}/movies?cityName=${this.state.searchQuery}`;
       const moviesData = await axios.get(moviesURL);
-      console.log(moviesData.data);
       this.setState({
         movies: moviesData.data,
         hasError: false,
