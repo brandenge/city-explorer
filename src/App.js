@@ -1,12 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-import Weather from './Weather';
-import Movies from './Movies';
-import Form from 'react-bootstrap/Form';
-import InputGroup from "react-bootstrap/InputGroup";
-import Button from "react-bootstrap/Button";
-import Card from 'react-bootstrap/Card';
-import './App.css'
+import SearchBar from './components/SearchBar';
+import Error from './components/Error';
+import City from './components/City';
+import Weather from './components/Weather';
+import Movies from './components/Movies';
+import './styles/App.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -91,26 +90,19 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Form className='form' onSubmit={this.getCityData}>
-          <InputGroup className='input' size='lg'>
-            <InputGroup.Text id="inputGroup-sizing-lg">
-              Enter the name of a U.S. city:
-            </InputGroup.Text>
-            <Form.Control onInput={this.handleInput}/>
-          </InputGroup>
-          <Button className='button' variant='outline-secondary' id='button-addon2' type='submit'>
-            Explore!
-          </Button>
-        </Form>
+        <SearchBar handleSubmit={this.getCityData} handleInput={this.handleInput}></SearchBar>
+        {
+          this.state.hasError &&
+          <Error error={this.state.error}></Error>
+        }
         {
           this.state.cityData.length > 0 &&
-          <Card className='card'>
-            <Card.Body>
-              <Card.Img className='cardImg' src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_IQ_API_KEY}&center=${this.state.cityData[0].lat},${this.state.cityData[0].lon}&zoom=10`}></Card.Img>
-              <Card.Title>{this.state.cityData[0].display_name}</Card.Title>
-              <Card.Text>Latitude: {this.state.cityData[0].lat} | Longitude: {this.state.cityData[0].lon}</Card.Text>
-            </Card.Body>
-          </Card>
+          <City
+            url={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_IQ_API_KEY}&center=${this.state.cityData[0].lat},${this.state.cityData[0].lon}&zoom=10`}
+            cityName={this.state.cityData[0].display_name}
+            lat={this.state.cityData[0].lat}
+            lon={this.state.cityData[0].lon}>
+          </City>
         }
         {
           this.state.weatherData.length > 0 &&
@@ -119,16 +111,6 @@ class App extends React.Component {
         {
           this.state.movies.length > 0 &&
           <Movies movies={this.state.movies}></Movies>
-        }
-        {
-          this.state.hasError &&
-          <Card className='error'>
-          <Card.Body>
-            <Card.Title>ERROR</Card.Title>
-            <Card.Text>ERROR STATUS CODE: {this.state.error.response.status}</Card.Text>
-            <Card.Text>ERROR MESSAGE: {this.state.error.message}</Card.Text>
-          </Card.Body>
-        </Card>
         }
       </>
     );
