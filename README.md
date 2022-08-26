@@ -32,7 +32,10 @@ This application currently only uses the 1st interaction. The request-response c
 4. The 3rd party API responds to the client (the promise is settled).
 5. The client receives the data and stores it in the browser and re-renders the page with it.
 
-![Diagram](diagram.png)
+![Diagram 1](./diagrams/1.png)
+![Diagram 2](./diagrams/2.png)
+![Diagram 3](./diagrams/3.png)
+![Diagram 4](./diagrams/4.png)
 
 This application uses React, Bootstrap, React Bootstrap, the Axios library, and the Location IQ API.
 
@@ -52,6 +55,7 @@ The lab demos by Audrey Patterson and Code Fellows was a big help.
 1) [Lab 6 demo](https://github.com/codefellows/seattle-code-301d88/blob/main/class-06)
 2) [Lab 7 demo](https://github.com/codefellows/seattle-code-301d88/tree/main/class-07)
 3) [Lab 8 demo](https://github.com/codefellows/seattle-code-301d88/tree/main/class-08)
+4) [Lab 9 demo](https://github.com/codefellows/seattle-code-301d88/tree/main/class-09)
 
 ## Time Estimates
 
@@ -94,3 +98,13 @@ Start time: 11:45
 Finish time: 12:05
 
 Actual time needed to complete: 20 minutes
+
+### 5) Name of feature: Refactor back end into separate server.js, weather.js, and movies.js
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 8:30 pm
+
+Finish time: 11:30 pm
+
+Actual time needed to complete: 3 hours

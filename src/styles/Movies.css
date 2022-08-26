@@ -1,0 +1,8 @@
+.wheel {
+  margin: 20px;
+  width: 80% !important;
+}
+
+.wheel h3, .wheel p {
+  color: cyan;
+}
