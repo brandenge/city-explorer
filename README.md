@@ -32,7 +32,10 @@ This application currently only uses the 1st interaction. The request-response c
 4. The 3rd party API responds to the client (the promise is settled).
 5. The client receives the data and stores it in the browser and re-renders the page with it.
 
-![Diagram](diagram.png)
+![Diagram 1](./diagrams/1.png)
+![Diagram 2](./diagrams/2.png)
+![Diagram 3](./diagrams/3.png)
+![Diagram 4](./diagrams/4.png)
 
 This application uses React, Bootstrap, React Bootstrap, the Axios library, and the Location IQ API.
 
