@@ -55,6 +55,7 @@ The lab demos by Audrey Patterson and Code Fellows was a big help.
 1) [Lab 6 demo](https://github.com/codefellows/seattle-code-301d88/blob/main/class-06)
 2) [Lab 7 demo](https://github.com/codefellows/seattle-code-301d88/tree/main/class-07)
 3) [Lab 8 demo](https://github.com/codefellows/seattle-code-301d88/tree/main/class-08)
+4) [Lab 9 demo](https://github.com/codefellows/seattle-code-301d88/tree/main/class-09)
 
 ## Time Estimates
 
