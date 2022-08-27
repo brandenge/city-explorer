@@ -5,6 +5,7 @@ import Error from './components/Error';
 import City from './components/City';
 import Weather from './components/Weather';
 import Movies from './components/Movies';
+import Restaurants from './components/Restaurants';
 import './styles/App.css';
 
 class App extends React.Component {
@@ -17,7 +18,8 @@ class App extends React.Component {
       hasError: false,
       error: {},
       weatherData: [],
-      movies: []
+      movies: [],
+      restaurants: []
     };
   }
 
@@ -93,6 +95,26 @@ class App extends React.Component {
     }
   }
 
+  getRestaurants = async () => {
+    try {
+      const restaurantsBaseURL = `${process.env.REACT_APP_SERVER_URL}/yelp`;
+      const restaurantsData = await axios.get(restaurantsBaseURL, { params: {
+        lat: this.state.cityData[0].lat,
+        lon: this.state.cityData[0].lon
+      }});
+      this.setState({
+        restaurants: restaurantsData.data,
+        hasError: false,
+      });
+    } catch(error) {
+      console.log('Error in getRestaurants', error);
+      this.setState({
+        hasError: true,
+        error: error
+      });
+    }
+  }
+
   render() {
     return (
       <>
@@ -113,6 +135,10 @@ class App extends React.Component {
         {
           this.state.weatherData.length > 0 &&
             <Weather days={this.state.weatherData}></Weather>
+        }
+        {
+          this.state.restaurants.length > 0 &&
+            <Restaurants restaurants={this.state.restaurants}></Restaurants>
         }
         {
           this.state.movies.length > 0 &&
