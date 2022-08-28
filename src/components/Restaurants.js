@@ -8,7 +8,7 @@ class Restaurants extends React.Component {
       <>
         <h2>Restaurants</h2>
         <Carousel>{
-          this.props.Restaurants.map(restaurant => {
+          this.props.restaurants.map(restaurant => {
             return (
               <Carousel.Item className='wheel' key={restaurant.id}>
                 <img className='d-block w-100' src={restaurant.image_url} alt={restaurant.name} />

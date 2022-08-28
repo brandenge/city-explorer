@@ -46,6 +46,7 @@ class App extends React.Component {
       }, () => {
         this.getWeather();
         this.getMovies();
+        this.getRestaurants();
       });
     } catch(error) {
       console.log('Error in getCityData', error);
@@ -67,6 +68,7 @@ class App extends React.Component {
         weatherData: weatherData.data,
         hasError: false,
       });
+      console.log(this.state.weatherData);
     } catch(error) {
       console.log('Error in getWeather', error);
       this.setState({
@@ -106,6 +108,7 @@ class App extends React.Component {
         restaurants: restaurantsData.data,
         hasError: false,
       });
+      console.log(this.state.restaurants);
     } catch(error) {
       console.log('Error in getRestaurants', error);
       this.setState({
