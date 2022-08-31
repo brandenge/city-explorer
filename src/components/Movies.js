@@ -8,7 +8,7 @@ class Movies extends React.Component {
       <>
         <h2>Movies</h2>
         <Carousel>{
-          this.props.movies.map((movie, i) => {
+          this.props.movies.map(movie => {
             return (
               <Carousel.Item className='wheel' key={movie.id}>
                 <img className='d-block w-100' src={movie.image_url} alt={movie.title} />

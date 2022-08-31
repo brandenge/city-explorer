@@ -7,7 +7,7 @@ class Error extends React.Component {
       <Card className='error'>
         <Card.Body>
           <Card.Title>ERROR</Card.Title>
-          <Card.Text>ERROR STATUS CODE: {this.props.error.response.status}</Card.Text>
+          <Card.Text>ERROR STATUS CODE: {this.props.error.status}</Card.Text>
           <Card.Text>ERROR MESSAGE: {this.props.error.message}</Card.Text>
         </Card.Body>
       </Card>

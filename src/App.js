@@ -5,6 +5,7 @@ import Error from './components/Error';
 import City from './components/City';
 import Weather from './components/Weather';
 import Movies from './components/Movies';
+import Restaurants from './components/Restaurants';
 import './styles/App.css';
 
 class App extends React.Component {
@@ -17,7 +18,8 @@ class App extends React.Component {
       hasError: false,
       error: {},
       weatherData: [],
-      movies: []
+      movies: [],
+      restaurants: []
     };
   }
 
@@ -31,15 +33,19 @@ class App extends React.Component {
   getCityData = async (e) => {
     try {
       e.preventDefault();
-      const cityURL = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATION_IQ_API_KEY}&q=${this.state.searchQuery}&format=json`;
-      const cityData = await axios.get(cityURL);
-
+      const cityBaseURL = `https://us1.locationiq.com/v1/search`;
+      const cityData = await axios.get(cityBaseURL, { params: {
+        key: process.env.REACT_APP_LOCATION_IQ_API_KEY,
+        q: this.state.searchQuery,
+        format: 'json'
+      }});
       this.setState({
         cityData: cityData.data,
         hasError: false,
       }, () => {
         this.getWeather();
         this.getMovies();
+        this.getRestaurants();
       });
     } catch(error) {
       console.log('Error in getCityData', error);
@@ -52,8 +58,11 @@ class App extends React.Component {
 
   getWeather = async () => {
     try {
-      const weatherURL = `${process.env.REACT_APP_SERVER_URL}/weather?lat=${this.state.cityData[0].lat}&lon=${this.state.cityData[0].lon}`;
-      const weatherData = await axios.get(weatherURL);
+      const weatherBaseURL = `${process.env.REACT_APP_SERVER_URL}/weather`;
+      const weatherData = await axios.get(weatherBaseURL, { params: {
+        lat: this.state.cityData[0].lat,
+        lon: this.state.cityData[0].lon
+      }});
       this.setState({
         weatherData: weatherData.data,
         hasError: false,
@@ -69,14 +78,36 @@ class App extends React.Component {
 
   getMovies = async () => {
     try {
-      const moviesURL = `${process.env.REACT_APP_SERVER_URL}/movies?cityName=${this.state.searchQuery}`;
-      const moviesData = await axios.get(moviesURL);
+      const moviesBaseURL = `${process.env.REACT_APP_SERVER_URL}/movies`;
+      const moviesData = await axios.get(moviesBaseURL, { params: {
+        cityName: this.state.searchQuery
+      }});
       this.setState({
         movies: moviesData.data,
         hasError: false,
       });
     } catch(error) {
       console.log('Error in getMovies', error);
+      this.setState({
+        hasError: true,
+        error: error
+      });
+    }
+  }
+
+  getRestaurants = async () => {
+    try {
+      const restaurantsBaseURL = `${process.env.REACT_APP_SERVER_URL}/yelp`;
+      const restaurantsData = await axios.get(restaurantsBaseURL, { params: {
+        lat: this.state.cityData[0].lat,
+        lon: this.state.cityData[0].lon
+      }});
+      this.setState({
+        restaurants: restaurantsData.data,
+        hasError: false,
+      });
+    } catch(error) {
+      console.log('Error in getRestaurants', error);
       this.setState({
         hasError: true,
         error: error
@@ -104,6 +135,10 @@ class App extends React.Component {
         {
           this.state.weatherData.length > 0 &&
             <Weather days={this.state.weatherData}></Weather>
+        }
+        {
+          this.state.restaurants.length > 0 &&
+            <Restaurants restaurants={this.state.restaurants}></Restaurants>
         }
         {
           this.state.movies.length > 0 &&
