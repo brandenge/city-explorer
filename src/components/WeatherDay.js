@@ -3,7 +3,7 @@ import React from 'react';
 class WeatherDay extends React.Component {
   render() {
     return (
-      <li>{this.props.day.date} | {this.props.day.description}</li>
+      <li>{this.props.day.time} | {this.props.day.forecast}</li>
     );
   }
 }

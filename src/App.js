@@ -39,7 +39,6 @@ class App extends React.Component {
         q: this.state.searchQuery,
         format: 'json'
       }});
-
       this.setState({
         cityData: cityData.data,
         hasError: false,
@@ -68,7 +67,6 @@ class App extends React.Component {
         weatherData: weatherData.data,
         hasError: false,
       });
-      console.log(this.state.weatherData);
     } catch(error) {
       console.log('Error in getWeather', error);
       this.setState({
@@ -108,7 +106,6 @@ class App extends React.Component {
         restaurants: restaurantsData.data,
         hasError: false,
       });
-      console.log(this.state.restaurants);
     } catch(error) {
       console.log('Error in getRestaurants', error);
       this.setState({
